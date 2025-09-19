@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign-style.css">
+
+    <title>Sign UP</title>
+
+</head>
+<body>
+	<?php
+		require('.conection.php');
+		if (isset($_POST['signUP_button'])) {
+			echo 'It is working';
+	}
+
+?>
+
+
+    <div class="form">
+        <div class="title">
+            <p>Sign UP</p>
+        </div>
+        <form action="" method="post">
+            <input type="text" name="name" placeholder="Username">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="password" placeholder="Password">
+           
+
+            
+            <input type="submit" value="Sign up" name="signUP_button"> 
+            <a href="./login.php">Do you have account? Sign in</a>
+        </form>
+    </div>
+
+
+</body>
+</html>

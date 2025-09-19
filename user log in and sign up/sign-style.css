@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image:url('sword art online.gif');
+    background-size: 1300px; 
+    background-position: center; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #9b56c9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+	margin:200px;
+	padding:50px;
+	
+}
+
+
+.title {
+    font-size: 24px;
+    color: #333;
+
+}
+
+input {
+    width: 100%;
+    padding:20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	
+}
+
+input[type="submit"] {
+    background-color: #9b56c9;
+    color: #fff;
+    cursor: pointer;
+	
+	
+}
+
+a {
+    text-decoration: none;
+    color: #9b56c9;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    border: none;
+
+}

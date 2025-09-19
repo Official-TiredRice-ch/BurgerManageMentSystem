@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Inventory System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding:100px;
+        }
+	
+
+	.black{ color:black
+		}
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .burger-form {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            flex-wrap: wrap;
+		display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .burger-entry {
+            background-color: #9b56c9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .delete-entry {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5252;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background-color: #9c27b0;
+            color: #fff;
+        }
+
+        #addEntry,
+        #addToInventory,
+        #resetForm {
+            background-color: #2196f3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+		font-size: 30px;
+        }
+
+        #addEntry {
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        #addToInventory,
+        #resetForm {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	 <div class="container">
+        <h1 class="black">Burger Inventory System</h1>
+        <form action="process.php" method="post" class="burger-form">
+            <button type="button" id="addEntry">Add Another Entry</button>
+            <button type="submit" id="addToInventory">Add to Inventory</button>
+            <button type="button" id="resetForm">Reset</button>
+            <div class="burger-entry">
+                <label for="burgerName">Burger Name:</label>
+                <input type="text" name="burgerName[]" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity[]" required>
+
+                <label for="quality">Quality (1-10):</label>
+                <input type="number" name="quality[]" min="1" max="10" required>
+                
+                <!-- Delete button for this entry -->
+                <button type="button" class="delete-entry" onclick="deleteEntry(this)">Delete</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('addEntry').addEventListener('click', function () {
+            var newEntry = document.querySelector('.burger-entry').cloneNode(true);
+            var entryContainer = document.querySelector('.burger-form');
+            entryContainer.appendChild(newEntry);
+        });
+
+        document.getElementById('resetForm').addEventListener('click', function () {
+            var form = document.querySelector('.burger-form');
+            form.reset(); // Reset the form fields
+        });
+
+        function deleteEntry(button) {
+            var entry = button.closest('.burger-entry');
+            entry.remove();
+        }
+    </script>
+</body>
+</html>
